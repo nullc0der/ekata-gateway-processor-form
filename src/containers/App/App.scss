@@ -1,0 +1,33 @@
+@import 'global-styles/ui';
+@import 'bootstrap/scss/bootstrap';
+
+body {
+    background-color: #fff;
+    color: $dark;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#root,
+.app-main {
+    display: block;
+    min-width: 100vw;
+    min-height: 100vh;
+    height: 100%;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.modal-body {
+    height: 600px;
+    position: relative;
+    .close-btn {
+        cursor: pointer;
+        position: absolute;
+        right: -30px;
+        top: 5px;
+    }
+}

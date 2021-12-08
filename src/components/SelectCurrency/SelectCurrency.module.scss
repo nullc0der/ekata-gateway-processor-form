@@ -1,0 +1,30 @@
+@import 'global-styles/ui';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    height: 100%;
+    justify-content: space-between;
+    :global {
+        .payment-types {
+            padding: 1rem 0;
+            // border: 1px solid $gray;
+            margin: 2rem 0;
+            .payment-type {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 0.5rem 1rem;
+                cursor: pointer;
+                .coin-logo {
+                    width: 40px;
+                    margin-right: 0.5rem;
+                }
+                &:hover {
+                    background-color: $gray;
+                }
+            }
+        }
+    }
+}
