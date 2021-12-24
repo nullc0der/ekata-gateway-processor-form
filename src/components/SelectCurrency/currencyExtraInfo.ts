@@ -14,4 +14,7 @@ export const currencyExtraInfo: CurrencyExtraInfo = {
     dogecoin: {
         ticker: 'DOGE',
     },
+    baza: {
+        ticker: 'BAZA',
+    },
 }
