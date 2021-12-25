@@ -44,7 +44,7 @@ const SelectCurrency = ({
                 ))}
             </div>
             <span className="text-muted text-center">
-                Exchange rates syncs every five minutes
+                Exchange rates sync every five minutes
             </span>
         </div>
     )

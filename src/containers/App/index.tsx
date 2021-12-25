@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useAtom } from 'jotai'
 import { Modal } from 'react-bootstrap'
+import find from 'lodash/find'
 
 import Main from 'pages/Main'
 import Error from 'pages/Error'
-import { projectInfoAtom, projectErrorAtom, paymentDataAtom } from 'store'
+import { projectInfoAtom, projectErrorAtom, paymentDatasAtom } from 'store'
 import { getProjectInfo } from 'api/project'
 import { sendMessageToParent } from 'utils/common'
 import './App.scss'
@@ -14,7 +15,9 @@ function App() {
     const [formID, setFormID] = useState('')
     const [projectInfo, setProjectInfo] = useAtom(projectInfoAtom)
     const [projectError, setProjectError] = useAtom(projectErrorAtom)
-    const [paymentData] = useAtom(paymentDataAtom)
+    const [paymentDatas] = useAtom(paymentDatasAtom)
+
+    const hasSuccessfulPayment = find(paymentDatas, (o) => o.signature?.length)
 
     const handleEvents = useCallback(
         (event: MessageEvent) => {
@@ -105,7 +108,7 @@ function App() {
             <Modal.Body>
                 <span
                     className={`material-icons close-btn ${
-                        paymentData?.signature && 'd-none'
+                        Boolean(hasSuccessfulPayment) && 'd-none'
                     }`}
                     onClick={sendCancelMessage}>
                     close

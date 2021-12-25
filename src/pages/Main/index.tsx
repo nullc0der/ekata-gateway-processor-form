@@ -60,7 +60,7 @@ const Main = ({ projectInfo, formID }: MainProps) => {
                 />
             )
         case 'paymentSuccess':
-            return <PaymentSuccess />
+            return <PaymentSuccess selectedCurrency={selectedCurrency} />
     }
 }
 

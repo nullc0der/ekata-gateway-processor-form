@@ -23,7 +23,7 @@ const Error = () => {
                     break
                 case '-104':
                     setErrorText(
-                        'Something was wrong creating a wallet address, please try later'
+                        'Something was wrong while creating a wallet address, please try later'
                     )
                     break
             }

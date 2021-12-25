@@ -22,4 +22,4 @@ export interface FormInfo {
 export const projectInfoAtom = atom<ProjectInfo | null>(null)
 export const projectErrorAtom = atom<ProjectError | null>(null)
 export const formInfoAtom = atom<FormInfo | null>(null)
-export const paymentDataAtom = atom<PaymentData | null>(null)
+export const paymentDatasAtom = atom<PaymentData[]>([])
