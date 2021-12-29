@@ -6,6 +6,7 @@ export interface ProjectInfo {
     id: string
     enabled_currency?: string[]
     domain_name?: string
+    is_non_profit?: boolean
 }
 
 export interface ProjectError {

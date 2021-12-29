@@ -147,7 +147,11 @@ const Payment = ({
                         <div className="text-center mt-4">
                             {!!formInfo && (
                                 <h6>
-                                    Send payment of{' '}
+                                    Send{' '}
+                                    {projectInfo?.is_non_profit
+                                        ? 'donation'
+                                        : 'payment'}{' '}
+                                    of{' '}
                                     {(formInfo.amount_requested / 100).toFixed(
                                         2
                                     )}{' '}
@@ -310,7 +314,11 @@ const Payment = ({
                         </Overlay>
                         <div className="text-center mt-4">
                             <span className="me-2">
-                                Checking payment status
+                                Checking{' '}
+                                {projectInfo?.is_non_profit
+                                    ? 'donation'
+                                    : 'payment'}{' '}
+                                status
                             </span>
                             <Spinner
                                 animation="grow"
@@ -340,7 +348,11 @@ const Payment = ({
                 </>
             ) : (
                 <div className="text-center mt-4">
-                    <span className="me-2">Fetching payment address</span>
+                    <span className="me-2">
+                        Fetching{' '}
+                        {projectInfo?.is_non_profit ? 'donation' : 'payment'}{' '}
+                        address
+                    </span>
                     <Spinner animation="grow" size="sm" variant="secondary" />
                 </div>
             )}

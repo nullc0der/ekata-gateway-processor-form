@@ -47,13 +47,21 @@ const PaymentSuccess = ({ selectedCurrency }: PaymentSuccessProps) => {
     return (
         <div className="d-flex flex-column h-100 p-4">
             <div className="text-center mb-4">
-                <p style={{ fontWeight: 'bold' }}>Payment Completed</p>
+                <p style={{ fontWeight: 'bold' }}>
+                    {projectInfo?.is_non_profit ? 'Donation' : 'Payment'}{' '}
+                    Completed
+                </p>
                 <p style={{ fontSize: '2rem' }}>🎉</p>
             </div>
             {!!paymentData && (
                 <>
                     <Card bg="light">
-                        <Card.Header>Payment ID</Card.Header>
+                        <Card.Header>
+                            {projectInfo?.is_non_profit
+                                ? 'Donation'
+                                : 'Payment'}{' '}
+                            ID
+                        </Card.Header>
                         <Card.Body>{paymentData.payment_id}</Card.Body>
                     </Card>
                     <Card bg="light" className="mt-2">

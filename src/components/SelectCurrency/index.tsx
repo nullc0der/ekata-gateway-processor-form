@@ -1,6 +1,7 @@
 import classnames from 'classnames'
+import { useAtom } from 'jotai'
 
-import { FormInfo } from 'store'
+import { FormInfo, projectInfoAtom } from 'store'
 import CoinLogo from 'components/CoinLogo'
 import s from './SelectCurrency.module.scss'
 import { currencyExtraInfo } from './currencyExtraInfo'
@@ -17,17 +18,24 @@ const SelectCurrency = ({
     formInfo,
 }: SelectCurrencyProps) => {
     const cx = classnames(s.container)
+    const [projectInfo] = useAtom(projectInfoAtom)
+
     return (
         <div className={cx}>
             {formInfo && (
                 <h5 className="mt-2 text-center">
-                    Pay {(formInfo.amount_requested / 100).toFixed(2)}{' '}
+                    {projectInfo?.is_non_profit ? 'Donate' : 'Pay'}{' '}
+                    {(formInfo.amount_requested / 100).toFixed(2)}{' '}
                     {formInfo.fiat_currency.toUpperCase()} in crypto
                 </h5>
             )}
             <div className="payment-types">
                 <div className="text-center mb-3">
-                    <span className="text-muted">Select payment type</span>
+                    <span className="text-muted">
+                        Select{' '}
+                        {projectInfo?.is_non_profit ? 'donation' : 'payment'}{' '}
+                        currency
+                    </span>
                 </div>
                 {currencyList?.map((x, i) => (
                     <div
