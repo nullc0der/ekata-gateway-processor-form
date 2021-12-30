@@ -5,6 +5,7 @@ import { FormInfo, projectInfoAtom } from 'store'
 import CoinLogo from 'components/CoinLogo'
 import s from './SelectCurrency.module.scss'
 import { currencyExtraInfo } from './currencyExtraInfo'
+import Footer from 'components/Footer'
 
 interface SelectCurrencyProps {
     currencyList?: string[]
@@ -34,7 +35,7 @@ const SelectCurrency = ({
                     <span className="text-muted">
                         Select{' '}
                         {projectInfo?.is_non_profit ? 'donation' : 'payment'}{' '}
-                        currency
+                        method
                     </span>
                 </div>
                 {currencyList?.map((x, i) => (
@@ -51,9 +52,7 @@ const SelectCurrency = ({
                     </div>
                 ))}
             </div>
-            <span className="text-muted text-center">
-                Exchange rates sync every five minutes
-            </span>
+            <Footer />
         </div>
     )
 }

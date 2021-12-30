@@ -104,14 +104,14 @@ function App() {
     }
 
     return (
-        <Modal show>
+        <Modal show centered scrollable>
             <Modal.Body>
                 <span
                     className={`material-icons close-btn ${
                         Boolean(hasSuccessfulPayment) && 'd-none'
                     }`}
                     onClick={sendCancelMessage}>
-                    close
+                    cancel
                 </span>
                 {!projectError ? (
                     <Main projectInfo={projectInfo} formID={formID} />

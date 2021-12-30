@@ -16,6 +16,7 @@ import { createPayment, getPaymentStatus } from 'api/paymentForm'
 import { currencyExtraInfo } from 'components/SelectCurrency/currencyExtraInfo'
 import { useInterval } from 'hooks/useInterval'
 import { paymentStatus } from 'constants/paymentStatus'
+import Footer from 'components/Footer'
 
 interface PaymentProps {
     selectedCurrency: string
@@ -329,9 +330,7 @@ const Payment = ({
                     </div>
                     <div className="footer">
                         <div className="text-center">
-                            <p className="text-muted mb-2">
-                                Exchange rates sync every five minutes
-                            </p>
+                            <Footer />
                             {!paymentData.amount_received && (
                                 <p
                                     style={{

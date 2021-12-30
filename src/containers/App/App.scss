@@ -2,7 +2,7 @@
 @import 'bootstrap/scss/bootstrap';
 
 body {
-    background-color: #fff;
+    background-color: rgba($color: $dark, $alpha: 0.35);
     color: $dark;
     position: relative;
     overflow-y: auto;
@@ -27,7 +27,8 @@ body {
     .close-btn {
         cursor: pointer;
         position: absolute;
-        right: -30px;
+        right: 5px;
         top: 5px;
+        color: #6c757d;
     }
 }

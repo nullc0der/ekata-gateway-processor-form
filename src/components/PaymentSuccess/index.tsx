@@ -6,6 +6,7 @@ import find from 'lodash/find'
 
 import { paymentDatasAtom, projectInfoAtom } from 'store'
 import { sendMessageToParent } from 'utils/common'
+import Footer from 'components/Footer'
 
 const FORM_CLOSE_TIME = 2 * 60 * 1000
 
@@ -87,6 +88,7 @@ const PaymentSuccess = ({ selectedCurrency }: PaymentSuccessProps) => {
                 renderer={countDownRenderer}
                 onComplete={closeForm}
             />
+            <Footer />
             <p
                 style={{
                     fontWeight: 'bold',
