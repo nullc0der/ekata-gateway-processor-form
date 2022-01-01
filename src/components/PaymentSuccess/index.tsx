@@ -47,7 +47,7 @@ const PaymentSuccess = ({ selectedCurrency }: PaymentSuccessProps) => {
 
     return (
         <div className="d-flex flex-column h-100 p-4">
-            <div className="text-center mb-4">
+            <div className="text-center">
                 <p style={{ fontWeight: 'bold' }}>
                     {projectInfo?.is_non_profit ? 'Donation' : 'Payment'}{' '}
                     Completed
@@ -56,7 +56,7 @@ const PaymentSuccess = ({ selectedCurrency }: PaymentSuccessProps) => {
             </div>
             {!!paymentData && (
                 <>
-                    <Card bg="light">
+                    <Card bg="light" className="mt-2">
                         <Card.Header>
                             {projectInfo?.is_non_profit
                                 ? 'Donation'

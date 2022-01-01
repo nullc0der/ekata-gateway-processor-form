@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, lazy, Suspense } from 'react'
 import { useAtom } from 'jotai'
 
 import { ProjectInfo, formInfoAtom, projectErrorAtom } from 'store'
 import { getFormInfo } from 'api/paymentForm'
-import SelectCurrency from 'components/SelectCurrency'
-import Payment from 'components/Payment'
-import PaymentSuccess from 'components/PaymentSuccess'
+import LoadingAnimation from 'components/LoadingAnimation'
+
+const SelectCurrency = lazy(() => import('components/SelectCurrency'))
+const Payment = lazy(() => import('components/Payment'))
+const PaymentSuccess = lazy(() => import('components/PaymentSuccess'))
 
 interface MainProps {
     projectInfo: ProjectInfo | null
@@ -45,22 +47,30 @@ const Main = ({ projectInfo, formID }: MainProps) => {
     switch (currentStep) {
         case 'selectCurrency':
             return (
-                <SelectCurrency
-                    currencyList={projectInfo?.enabled_currency}
-                    onClickCurrency={onClickCurrency}
-                    formInfo={formInfo}
-                />
+                <Suspense fallback={<LoadingAnimation />}>
+                    <SelectCurrency
+                        currencyList={projectInfo?.enabled_currency}
+                        onClickCurrency={onClickCurrency}
+                        formInfo={formInfo}
+                    />
+                </Suspense>
             )
         case 'payment':
             return (
-                <Payment
-                    selectedCurrency={selectedCurrency}
-                    onClickBack={() => setCurrentStep('selectCurrency')}
-                    setCurrentStep={setCurrentStep}
-                />
+                <Suspense fallback={<LoadingAnimation />}>
+                    <Payment
+                        selectedCurrency={selectedCurrency}
+                        onClickBack={() => setCurrentStep('selectCurrency')}
+                        setCurrentStep={setCurrentStep}
+                    />
+                </Suspense>
             )
         case 'paymentSuccess':
-            return <PaymentSuccess selectedCurrency={selectedCurrency} />
+            return (
+                <Suspense fallback={<LoadingAnimation />}>
+                    <PaymentSuccess selectedCurrency={selectedCurrency} />
+                </Suspense>
+            )
     }
 }
 

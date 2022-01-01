@@ -1,14 +1,16 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, lazy, Suspense } from 'react'
 import { useAtom } from 'jotai'
 import { Modal } from 'react-bootstrap'
 import find from 'lodash/find'
+import LoadingAnimation from 'components/LoadingAnimation'
 
-import Main from 'pages/Main'
-import Error from 'pages/Error'
 import { projectInfoAtom, projectErrorAtom, paymentDatasAtom } from 'store'
 import { getProjectInfo } from 'api/project'
 import { sendMessageToParent } from 'utils/common'
 import './App.scss'
+
+const Main = lazy(() => import('pages/Main'))
+const Error = lazy(() => import('pages/Error'))
 
 function App() {
     const [projectID, setProjectID] = useState('')
@@ -113,11 +115,13 @@ function App() {
                     onClick={sendCancelMessage}>
                     cancel
                 </span>
-                {!projectError ? (
-                    <Main projectInfo={projectInfo} formID={formID} />
-                ) : (
-                    <Error />
-                )}
+                <Suspense fallback={<LoadingAnimation />}>
+                    {!projectError ? (
+                        <Main projectInfo={projectInfo} formID={formID} />
+                    ) : (
+                        <Error />
+                    )}
+                </Suspense>
             </Modal.Body>
         </Modal>
     )

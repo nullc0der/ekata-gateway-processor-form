@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@fontsource/material-icons": "^4.5.0",
         "@sentry/react": "^6.15.0",
         "@sentry/tracing": "^6.15.0",
         "@testing-library/jest-dom": "^5.11.4",

@@ -1,8 +1,9 @@
 @import 'global-styles/ui';
 @import 'bootstrap/scss/bootstrap';
+@import '@fontsource/material-icons';
 
 body {
-    background-color: rgba($color: $dark, $alpha: 0.35);
+    background-color: transparent;
     color: $dark;
     position: relative;
     overflow-y: auto;
@@ -31,4 +32,8 @@ body {
         top: 5px;
         color: #6c757d;
     }
+}
+
+.progress {
+    height: 0.75rem;
 }
