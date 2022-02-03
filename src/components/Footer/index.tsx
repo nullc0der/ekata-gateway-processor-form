@@ -10,10 +10,7 @@ const Footer = () => {
             <span className="text-muted text-center">
                 Exchange rates sync every five minutes
             </span>
-            <a
-                href="https://gpconsole.ekata.io"
-                target="_blank"
-                rel="noreferrer">
+            <a href="https://ekata.io" target="_blank" rel="noreferrer">
                 <Badge bg="primary" pill>
                     Processed by Ekata.io
                 </Badge>
