@@ -25,7 +25,7 @@ const SelectCurrency = ({
         <div className={cx}>
             {formInfo && (
                 <h5 className="mt-2 text-center">
-                    Amount to send is about equivalent to{' '}
+                    Amount to send is about equivalent to $
                     {(formInfo.amount_requested / 100).toFixed(2)}
                 </h5>
             )}
