@@ -25,9 +25,8 @@ const SelectCurrency = ({
         <div className={cx}>
             {formInfo && (
                 <h5 className="mt-2 text-center">
-                    {projectInfo?.is_non_profit ? 'Donate' : 'Pay'}{' '}
-                    {(formInfo.amount_requested / 100).toFixed(2)}{' '}
-                    {formInfo.fiat_currency.toUpperCase()} in crypto
+                    Amount to send is about equivalent to{' '}
+                    {(formInfo.amount_requested / 100).toFixed(2)}
                 </h5>
             )}
             <div className="payment-types">
