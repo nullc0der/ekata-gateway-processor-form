@@ -9,3 +9,7 @@ Client side payment processor form for ekata gateway processor
 -   Bootstrap
 -   SCSS
 -   Jotai
+
+### Screenshots
+
+Head over to [screenshots](/screenshots) for some screenshots
